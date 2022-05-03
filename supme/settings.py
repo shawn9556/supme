@@ -121,3 +121,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# DATABASE = {
+
+# 	'default':{
+# 		'ENGINE': 'django.db.backends.mysql',
+# 		'HOST' : 'django-test.czqcjysdwa5j.ap-northeast-2.rds.amazonaws.com',
+# 		'PORT': '3306',
+# 		'NAME': 'demo_rds',
+# 		'USER': 'demo_user',
+# 		'PASSWORD': 'victor@1995',
+# 		}
+
+# }
