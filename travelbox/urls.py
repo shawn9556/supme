@@ -6,5 +6,6 @@ from travelbox import views
 app_name='travelbox'
 
 urlpatterns = [
-    path("supme/", views.index)
+    path("supme/", views.index),
+    path('test/', views.test)
 ]

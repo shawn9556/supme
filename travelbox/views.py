@@ -8,3 +8,8 @@ from django.contrib import auth
 def index(request):
     
     return render(request, 'travelbox/travelbox.html')
+
+    
+def test(request):
+    
+    return render(request, 'travelbox/test.html')
