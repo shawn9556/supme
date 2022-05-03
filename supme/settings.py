@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'travelbox' #travelbox폴더를 의미???
+    'travelbox',
+    'landing',
+    'mypage',
+    'survey' #travelbox폴더를 의미???
 ]
 
 MIDDLEWARE = [
