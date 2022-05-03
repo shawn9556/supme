@@ -7,5 +7,6 @@ app_name='travelbox'
 
 urlpatterns = [
     path("supme/", views.index),
-    path('test/', views.test)
+    path('test/', views.test),
+    path('login/', views.login)
 ]

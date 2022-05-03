@@ -13,3 +13,7 @@ def index(request):
 def test(request):
     
     return render(request, 'travelbox/test.html')
+
+def login(request):
+
+    return render(request, 'travelbox/login.html')
