@@ -13,7 +13,10 @@
         {% csrf_token %}
      장소: <input type="text" name="place_name">
      교통: <input type="text" name="traffic">
-     
+     숙소: <input type="text" name="accomdation">
+     <!-- 교통: <input type="text" name="traffic">
+     교통: <input type="text" name="traffic">
+      -->
      
      <input type="submit" value="submit">
     </form>
@@ -24,6 +27,9 @@
     {% endif %}
     {% if travelbox.traffic %}
     <p>{{Travel_box.traffic}}</p>
+    {% endif %}
+    {% if travelbox.accomdation %}
+    <p>{{Travel_box.accomdation}}</p>
     {% endif %}
 
 

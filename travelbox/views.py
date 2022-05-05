@@ -13,7 +13,7 @@ def index(request):
     elif request.method =='POST':
         mk_box = Travel_box()
         # mk_box.id = request.POST['id']
-        # mk_box.accomdation = request.POST['accomdation']
+        mk_box.accomdation = request.POST['accomdation']
         # mk_box.food = request.POST['food']
         # mk_box.activity = request.POST['activity']
         # mk_box.sightseeing = request.POST['sightseeing']
