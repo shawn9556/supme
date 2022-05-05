@@ -6,7 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<p>
     <h1>Travel box</h1>
+
+    <form action="{% url 'travelbox:travelbox' %}" id="post-write" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+     장소: <input type="text" name="place_name">
+     교통: <input type="text" name="traffic">
+     
+     
+     <input type="submit" value="submit">
+    </form>
+
+    <p>============================================</p>
+    
+    <p>{{Travel_box.place_name}}</p>
+    {% endif %}
+    {% if travelbox.traffic %}
+    <p>{{Travel_box.traffic}}</p>
+    {% endif %}
+
+
 </body>
 </html>
