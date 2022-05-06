@@ -38,3 +38,14 @@ def test(request):
 def login(request):
 
     return render(request, 'travelbox/login.html')
+
+def read(request, post_id):
+    
+    post = Travel_box.objects.get(id= post_id)
+
+    context = {
+        'post': post,
+        
+    }
+
+    return render(request, 'travelbox/read_box.html', context)
