@@ -9,5 +9,6 @@ urlpatterns = [
     path("supme/", views.index, name="travelbox"),
     path('test/', views.test),
     path('login/', views.login),
-    path('read/<int:post_id>/', views.read)
+    path('read/<int:post_id>/', views.read, name='read_box'),
+    path('read-all/', views.read_all, name='read_all')
 ]

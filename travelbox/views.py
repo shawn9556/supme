@@ -46,6 +46,18 @@ def read(request, post_id):
     context = {
         'post': post,
         
+        
     }
 
     return render(request, 'travelbox/read_box.html', context)
+
+def read_all(request):
+    
+    post_list = Travel_box.objects.all()
+
+    context = {
+        'posts': post_list
+        
+    }
+
+    return render(request, 'travelbox/read_box_list.html', context)
