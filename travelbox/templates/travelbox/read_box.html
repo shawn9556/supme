@@ -8,6 +8,12 @@
 </head>
 <body>
     <h1>{{post.id}}</h1>
+    {% if post.image %}
+    <div style="width: 250px;">
+        <img src="{{ post.head_image.url }}" alt="post image" style="width: 100%;">
+    </div>
+    {% endif %}
+
     <h2>{{post.place_name}}</h2>
     <p>{{post.traffic}}</p>
     <p>{{post.accomdation}}</p>

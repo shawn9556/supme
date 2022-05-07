@@ -20,6 +20,10 @@ def create(request):
         mk_box.sightseeing = request.POST['sightseeing']
         mk_box.place_name = request.POST['place_name']
         mk_box.traffic = request.POST['traffic']
+        if request.FILES.get("image"):
+            print('ok')
+            mk_box.image = request.FILES['image']
+            
         mk_box.save()
     
         return render(request, 'travelbox/box_create.html')
@@ -67,6 +71,9 @@ def box_update(request, post_id):
         target_post.food = request.POST['food']
         target_post.activity = request.POST['activity']
         target_post.sightseeing = request.POST['sightseeing']
+        if request.FILES.get("image"):
+            print('ok')
+            target_post.image = request.FILES['image']
         target_post.save()
         
         return HttpResponseRedirect('/travelbox/read-all/')

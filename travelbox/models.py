@@ -9,3 +9,7 @@ class Travel_box(models.Model):
     food  = models.TextField(max_length=64, blank=True, null = True)
     activity = models.TextField(max_length=64, blank=True, null = True)
     sightseeing = models.TextField(max_length=64, blank=True, null = True)
+    image = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True
+    )
