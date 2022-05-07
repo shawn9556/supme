@@ -10,6 +10,18 @@
     <h1>{{post.id}}</h1>
     <h2>{{post.place_name}}</h2>
     <p>{{post.traffic}}</p>
-   
+    <p>{{post.accomdation}}</p>
+    <p>{{post.food}}</p>
+    <p>{{post.activity}}</p>
+    <p>{{post.sightseeing}}</p>
+    
+    <div>
+        <a href="{% url 'travelbox:box_update' post.id %}" style="width: 300px">Edit</a>
+    </div>
+    <div>
+        <a href="{% url 'travelbox:delete' post.id %}">delete</a>
+    </div>
+    <a href="{% url 'travelbox:read_all'%}">Go back</a>
+    
     </body>
 </html>

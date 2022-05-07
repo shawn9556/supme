@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travelbox Update</title>
+</head>
+<body>
+   <form action="{% url 'travelbox:box_update' post.id %}" id="post-edit" method="post">
+       {% csrf_token %}
+    장소: <input type="text" name="place_name" value="{{post.place_name}}"><br>
+    교통: <input type="text" name="traffic" value="{{post.traffic}}"><br>
+    숙소: <input type="text" name="accomdation" value="{{post.accomdation}}"><br>
+    음식: <input type="text" name="food" value="{{post.food}}"><br>
+    경치: <input type="text" name="sightseeing" value="{{post.sightseeing}}"><br>
+    액티비티: <input type="text" name="activity" value="{{post.activity}}"><br>
+    <input type="submit" value="submit">
+   </form>
+
+   <div>
+    <a href="{% url 'travelbox:read_all'%}" style="width: 300px">Go back</a>
+    </div>
+
+   
+</body>
+</html> 

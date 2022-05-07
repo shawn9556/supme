@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<p>
+    <h1>Travel box</h1>
+
+    <form action="{% url 'travelbox:create' %}" id="post-write" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+     장소: <input type="text" name="place_name"><br>
+     교통: <input type="text" name="traffic"><br>
+     숙소: <input type="text" name="accomdation"><br>
+     음식: <input type="text" name="food"><br>
+     경치: <input type="text" name="sightseeing"><br>
+     액티비티: <input type="text" name="activity"><br>
+   
+     
+     <input type="submit" value="submit">
+    </form>
+
+</body>
+</html>
