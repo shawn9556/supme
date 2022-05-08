@@ -5,6 +5,11 @@
   <meta charset="UTF-8">
   <title>My Travel Box</title>
   <link rel="stylesheet" href="{% static 'travelbox/css/travel_box.css' %}">
+
+  <!-- ============================================== 임시-->
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script> 
+  <!-- ============================================== -->
+  
 </head>
 <body>
   <div class="mainbox">
@@ -27,34 +32,34 @@
   
 
     <section>
-      <button><h2>교통수단</h2></button>
-      {{post.traffic}}
+      <button id="btn_toggle"><h2>교통수단</h2></button>
+      <div id="Toggle" style="display:none">{{post.traffic}}</div>
       </section>
     
      
       <section>
-      <button><h2>숙소</h2></button>
-      {{post.accomdation}}
+      <button id="btn_toggle1"><h2>숙소</h2></button>
+      <div id="Toggle1" style="display:none">{{post.accomdation}}</div>
       </section>
 
       <section>
-        <button><h2>음식</h2></button>
-        {{post.food}}
+        <button id="btn_toggle2" ><h2>음식</h2></button>
+        <div id="Toggle2" style="display:none">{{post.food}}</div>
+    </section> 
+
+    <section>
+      <button id="btn_toggle3" ><h2>액티비티</h2></button>
+      <div id="Toggle3" style="display:none">{{post.activity}}</div>
     </section>
 
     <section>
-      <button><h2>액티비티</h2></button>
-      {{post.activity}}
-    </section>
-
-    <section>
-      <button><h2>경치</h2></button>
-      {{post.sightseeing}}
+      <button id="btn_toggle4" ><h2>경치</h2></button>
+      <div id="Toggle4" style="display:none">{{post.sightseeing}}</div>
     </section>
     
     <section>
-      <button><h2>미션</h2></button>
-      <div>
+      <button id="btn_toggle5" ><h2>미션</h2></button>
+      <div id="Toggle5" style="display:none">
         미션이미지1
         <input type="file" name="image"><br>
         미션이미지2
@@ -64,14 +69,52 @@
      </div>
     </section>
 
-    <div class="sns-wrap">
-      
-    </div>
+   
   </div>
 
 
   <footer>
       <p>Copyright SUPME rights reserved.</p>
   </footer>
+<!-- ===================================================== -->
+  <script>
+   $(function (){
+	$("#btn_toggle").click(function (){
+  	$("#Toggle").toggle();
+  });
+});
+
+$(function (){
+	$("#btn_toggle1").click(function (){
+  	$("#Toggle1").toggle();
+  });
+});
+
+$(function (){
+	$("#btn_toggle2").click(function (){
+  	$("#Toggle2").toggle();
+  });
+});
+
+$(function (){
+	$("#btn_toggle3").click(function (){
+  	$("#Toggle3").toggle();
+  });
+});
+
+$(function (){
+	$("#btn_toggle4").click(function (){
+  	$("#Toggle4").toggle();
+  });
+});
+
+$(function (){
+	$("#btn_toggle5").click(function (){
+  	$("#Toggle5").toggle();
+  });
+});
+
+  </script>
+  <!-- ===================================================== -->
 </body>
 </html>
