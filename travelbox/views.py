@@ -90,3 +90,13 @@ def delete(request, post_id):
         delete_post = Travel_box.objects.get(id = post_id)
         delete_post.delete()
         return HttpResponseRedirect('/travelbox/read-all/')
+
+
+def mybox(request, post_id):
+   
+    read = Travel_box.objects.get(id = post_id)
+    context = {
+        'post': read,
+              
+    }
+    return render(request, "travelbox/mybox.html", context)

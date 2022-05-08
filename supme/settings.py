@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'travelbox',
     'landing',
     'mypage',
-    'survey' #travelbox폴더를 의미???
+    'survey' #travelbox의 앱들
 ]
 
 MIDDLEWARE = [
@@ -119,7 +119,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = './static/'
 
 
 MEDIA_URL = "/media/"

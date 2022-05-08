@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <title>My Travel Box</title>
+  <link rel="stylesheet" href="{% static 'travelbox/css/travel_box.css' %}">
+</head>
+<body>
+  <div class="mainbox">
+    <div class="title-box">
+      <h1>{{ post.place_name }}</h1>
+      
+    </div>
+
+    {% if post.image %}
+    <div style="width: 250px;">
+        <img src="{{ post.head_image.url }}" alt="post image" style="width: 100%;">
+    </div>
+    {% endif %}
+
+    <section>
+      <h2>{{post.traffic}}</h2>
+     
+      </section>
+
+      <section>
+        <h2>{{post.food}}</h2>
+        
+    </section>
+
+    <section>
+        <h2>{{post.activity}}</h2>
+       
+    </section>
+
+    <section>
+      <h2>{{post.sightseeing}}</h2>
+      
+    </section>
+
+    <div class="sns-wrap">
+      
+    </div>
+  </div>
+
+  
+  <footer>
+      <p>Copyright SUPME rights reserved.</p>
+  </footer>
+</body>
+</html>
