@@ -20,23 +20,48 @@
     {% endif %}
 
     <section>
-      <h2>{{post.traffic}}</h2>
+      <h2>날씨</h2>
+      맑음 => 날씨API       <!-- 임시 -->
+
+      </section>
+  
+
+    <section>
+      <button><h2>교통수단</h2></button>
+      {{post.traffic}}
+      </section>
+    
      
+      <section>
+      <button><h2>숙소</h2></button>
+      {{post.accomdation}}
       </section>
 
       <section>
-        <h2>{{post.food}}</h2>
-        
+        <button><h2>음식</h2></button>
+        {{post.food}}
     </section>
 
     <section>
-        <h2>{{post.activity}}</h2>
-       
+      <button><h2>액티비티</h2></button>
+      {{post.activity}}
     </section>
 
     <section>
-      <h2>{{post.sightseeing}}</h2>
-      
+      <button><h2>경치</h2></button>
+      {{post.sightseeing}}
+    </section>
+    
+    <section>
+      <button><h2>미션</h2></button>
+      <div>
+        미션이미지1
+        <input type="file" name="image"><br>
+        미션이미지2
+        <input type="file" name="image"><br>
+        미션이미지3
+        <input type="file" name="image"><br>
+     </div>
     </section>
 
     <div class="sns-wrap">
@@ -44,7 +69,7 @@
     </div>
   </div>
 
-  
+
   <footer>
       <p>Copyright SUPME rights reserved.</p>
   </footer>
