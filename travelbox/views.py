@@ -100,3 +100,5 @@ def mybox(request, post_id):
               
     }
     return render(request, "travelbox/mybox.html", context)
+
+

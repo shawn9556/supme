@@ -13,3 +13,4 @@ class Travel_box(models.Model):
         upload_to = 'landing/images/%Y/%m/%d/%H/',
         blank = True
     )
+

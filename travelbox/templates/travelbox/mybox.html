@@ -4,10 +4,13 @@
   {% load static %}
   <meta charset="UTF-8">
   <title>My Travel Box</title>
-  <link rel="stylesheet" href="{% static 'travelbox/css/travel_box.css' %}">
-
-  <!-- ============================================== 임시-->
+  <link rel="stylesheet" href="{% static 'css/travel_box.css' %}">
+  <!-- <link rel="stylesheet" href="{% static 'js/mybox.js' %}"> -->
   <script src="//code.jquery.com/jquery-3.3.1.min.js"></script> 
+  <script src="{% static 'js/mybox.js' %}"></script> 
+  <!-- ============================================== 임시-->
+  
+  
   <!-- ============================================== -->
   
 </head>
@@ -20,7 +23,7 @@
 
     {% if post.image %}
     <div style="width: 250px;">
-        <img src="{{ post.head_image.url }}" alt="post image" style="width: 100%;">
+        <img src="{{ post.image.url }}" alt="post image" style="width: 100%;">
     </div>
     {% endif %}
 
@@ -28,13 +31,13 @@
       <h2>날씨</h2>
       맑음 => 날씨API       <!-- 임시 -->
 
-      </section>
+    </section>
   
 
     <section>
       <button id="btn_toggle"><h2>교통수단</h2></button>
       <div id="Toggle" style="display:none">{{post.traffic}}</div>
-      </section>
+    </section>
     
      
       <section>
@@ -77,7 +80,7 @@
       <p>Copyright SUPME rights reserved.</p>
   </footer>
 <!-- ===================================================== -->
-  <script>
+  <!-- <script>
    $(function (){
 	$("#btn_toggle").click(function (){
   	$("#Toggle").toggle();
@@ -114,7 +117,7 @@ $(function (){
   });
 });
 
-  </script>
+  </script> -->
   <!-- ===================================================== -->
 </body>
 </html>
