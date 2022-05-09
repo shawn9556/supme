@@ -11,15 +11,42 @@
 
     <form action="{% url 'travelbox:create' %}" id="post-write" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-     장소: <input type="text" name="place_name"><br>
+     <!-- 장소: <input type="text" name="place_name"><br>
      교통: <input type="text" name="traffic"><br>
      숙소: <input type="text" name="accomdation"><br>
      음식: <input type="text" name="food"><br>
      경치: <input type="text" name="sightseeing"><br>
      액티비티: <input type="text" name="activity"><br>
+      -->
+
+      <label for="place_name">장소:</label>
+      <select name="place_name" >
+        <option value="none">선택</option>
+        <option value="영월">영월</option>
+        <option value="철원">철원</option>
+        <option value="군산">군산</option>
+        <option value="삼척">삼척</option>
+        <option value="문경">문경</option>
+        <option value="철원">태안</option>
+      </select>
+      <br><br>
+      
+      <label for="traffic">교통수단:</label>
+      <select name="traffic" >
+        <option value="none">선택</option>
+        <option value="자차">자차</option>
+        <option value="고속버스">고속버스</option>
+        <option value="기차">기차</option>
+      </select>
+      <br><br>
+      숙소: <input type="text" name="accomdation"><br>
+      음식: <input type="text" name="food"><br>
+      경치: <input type="text" name="sightseeing"><br>
+      액티비티: <input type="text" name="activity"><br>
+     
      <div>
         <input type="file" name="image">
-    </div>
+     </div>
    
      
      <input type="submit" value="submit">

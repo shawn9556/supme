@@ -14,12 +14,12 @@ def create(request):
     elif request.method =='POST':
         mk_box = Travel_box()
         # mk_box.id = request.POST['id']
-        mk_box.accomdation = request.POST['accomdation']
-        mk_box.food = request.POST['food']
-        mk_box.activity = request.POST['activity']
-        mk_box.sightseeing = request.POST['sightseeing']
+        mk_box.accomdation = request.POST.get('accomdation')
+        mk_box.food = request.POST.get('food')
+        mk_box.activity = request.POST.get('activity')
+        mk_box.sightseeing = request.POST.get('sightseeing')
         mk_box.place_name = request.POST['place_name']
-        mk_box.traffic = request.POST['traffic']
+        mk_box.traffic = request.POST.get('traffic')
         if request.FILES.get("image"):
             print('ok')
             mk_box.image = request.FILES['image']

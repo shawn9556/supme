@@ -27,7 +27,11 @@
     <div>
         <a href="{% url 'travelbox:delete' post.id %}">delete</a>
     </div>
+    <div>
     <a href="{% url 'travelbox:read_all'%}">Go back</a>
-    
+    </div>
+    <div>
+    <a href="{% url 'travelbox:mybox' post.id%}">My Box</a>
+    </div>
     </body>
 </html>
