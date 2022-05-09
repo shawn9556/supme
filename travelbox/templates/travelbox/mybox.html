@@ -12,14 +12,13 @@
 </head>
 <body>
   <div class="mainbox">
-    <div class="title-box">
       <h1>{{ post.place_name }}</h1>
       
     </div>
 
-    {% if post.image %}
+    {% if post.image_1 %}
     <div style="width: 250px;">
-        <img src="{{ post.image.url }}" alt="post image" style="width: 100%;">
+        <img src="{{ post.image_1.url }}" alt="post image" style="width: 100%;">
     </div>
     {% endif %}
 
@@ -56,18 +55,40 @@
       <div id="Toggle4" style="display:none">{{post.sightseeing}}</div>
     </section>
     
-    <section>
-      <button id="btn_toggle5" ><h2>미션</h2></button>
-      <div id="Toggle5" style="display:none">
-        미션이미지1
-        <input type="file" name="image"><br>
-        미션이미지2
-        <input type="file" name="image"><br>
-        미션이미지3
-        <input type="file" name="image"><br>
-     </div>
-    </section>
+    <form action="{% url 'travelbox:mybox' %}" id="post-write"  method="post" enctype="multipart/form-data">
+      {% csrf_token %}      
+      <section>
+              <button id="btn_toggle5" ><h2>미션</h2></button>
+              <div id="Toggle5" style="display:none">
+                미션이미지1<br>
+                {% if post.image_1 %}
+                <div style="width: 250px;">
+                    <img src="{{ post.image_1.url }}" alt="post image_2" style="width: 100%;">
+                </div>
+                {% endif %}
+                <input type="file" name="user_image_1"><br>
+                미션이미지2<br>
+                {% if post.image_2 %}
+                <div style="width: 250px;">
+                    <img src="{{ post.image_2.url }}" alt="post image_3" style="width: 100%;">
+                </div>
+                {% endif %}
+                <input type="file" name="user_image_2"><br>
+                미션이미지3<br>
+                {% if post.image_3 %}
+                <div style="width: 250px;">
+                    <img src="{{ post.image_3.url }}" alt="post image" style="width: 100%;">
+                </div>
+                {% endif %}
+                <input type="file" name="user_image_3"><br><br>
+                
+            </div>
+            </section>
 
+      <input type="submit" value="submit">
+    </form>
+
+    
    
   </div>
 
