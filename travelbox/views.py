@@ -3,7 +3,9 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 
-from travelbox.models import GetPic, Travel_box
+from travelbox.models import GetPic, Travel_box, City
+import requests
+from .forms import CityForm
 
 # Create your views here.
 
@@ -120,3 +122,37 @@ def mybox(request, post_id):
     return render(request, "travelbox/mybox.html", context)
 
 
+def weather(request):
+
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=5054f8884263db59d70b67fc83db029e'
+
+    cities = City.objects.all() #return all the cities in the database
+    if request.method == 'POST': # only true if form is submitted
+        form = CityForm(request.POST) # add actual request data to form for processing
+        form.save()
+    
+    form = CityForm()
+    weather_data = []
+
+
+    for city in cities:
+        response = requests.get(url.format(city))
+        if response.status_code != 200:
+            print(city)
+            continue
+        city_weather = response.json() #request the API data and convert the JSON to Python data types
+        print(f"city: {city}")
+        # for key, value in city_weather.items():
+        #     print(f"{key}: {value}")
+
+        weather = {
+            'city' : city,
+            'temperature' : city_weather['main']['temp'],
+            'description' : city_weather['weather'][0]['description'],
+            'icon' : city_weather['weather'][0]['icon']
+        }
+
+        weather_data.append(weather) #add the data for the current city into our list
+
+    context = {'weather_data' : weather_data, 'form' : form}
+    return render(request, 'travelbox/weather.html', context) #returns the index.html te
