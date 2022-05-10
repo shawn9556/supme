@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.http import HttpResponseRedirect
@@ -96,67 +96,27 @@ def delete(request, post_id):
 
 
 def mybox(request, post_id):
-   
+    
     read = Travel_box.objects.get(id = post_id)
     context = {
         'post': read,
-              
     }
 
-    # if request.method =='POST':
+    if request.method =='POST':
     
-    #     get_pic = GetPic()
-
-    #     if request.FILES.get("user_image_1"):          
-    #         get_pic.user_image_1 = request.FILES['user_image_1']
-    #     if request.FILES.get("user_image_2"):  
-    #         get_pic.user_image_2 = request.FILES['user_image_2']
-    #     if request.FILES.get("user_image_3"):  
-    #         get_pic.user_image_3 = request.FILES['user_image_3']
-
-    return render(request, "travelbox/mybox.html", context)
-
-
-# def getpic(request, post_id):
-   
-#    post = GetPic().objects.get(id= post_id)
-
-#    context = {
-#         'post': post,
-        
-        
-#     }
-
-
-
-#    return render(request, "travelbox/user_pic.html", context)
-
-def user_pic_create(request):
-    if request.method == 'GET':
-        return render(request, 'travelbox/mybox.html')
-    elif request.method =='POST':
         get_pic = GetPic()
-        # mk_box.id = request.POST['id']
-     
+        get_pic.box_id = read
+
         if request.FILES.get("user_image_1"):          
             get_pic.user_image_1 = request.FILES['user_image_1']
         if request.FILES.get("user_image_2"):  
             get_pic.user_image_2 = request.FILES['user_image_2']
         if request.FILES.get("user_image_3"):  
             get_pic.user_image_3 = request.FILES['user_image_3']
-            
         get_pic.save()
-    
-        return render(request, 'travelbox/user_pic.html')
 
-def read_pic(request, post_id):
-    
-    post = GetPic.objects.get(id= post_id)
+        return redirect("travelbox:mybox", post_id)
 
-    context = {
-        'post': post,
-        
-        
-    }
+    return render(request, "travelbox/mybox.html", context)
 
-    return render(request, 'travelbox/read_box.html', context)
+

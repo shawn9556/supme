@@ -12,6 +12,4 @@ urlpatterns = [
     path('update/<int:post_id>/', views.box_update, name='box_update'),
     path('delete/<int:post_id>/', views.delete, name='delete'),
     path('mybox/<int:post_id>/', views.mybox, name='mybox'),
-    path('user_pic/', views.read_pic, name='read_pic'),
-  
 ]
