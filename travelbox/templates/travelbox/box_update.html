@@ -7,7 +7,7 @@
     <title>Travelbox Update</title>
 </head>
 <body>
-   <form action="{% url 'travelbox:box_update' post.id %}" id="post-edit" method="post">
+   <form action="{% url 'travelbox:box_update' post.id %}" id="post-edit" method="post" enctype="multipart/form-data">
        {% csrf_token %}
     장소: <input type="text" name="place_name" value="{{post.place_name}}"><br>
     교통: <input type="text" name="traffic" value="{{post.traffic}}"><br>
@@ -15,10 +15,30 @@
     음식: <input type="text" name="food" value="{{post.food}}"><br>
     경치: <input type="text" name="sightseeing" value="{{post.sightseeing}}"><br>
     액티비티: <input type="text" name="activity" value="{{post.activity}}"><br>
-    <!-- <div>
-        <input type="file" name="image">
-    </div> -->
-    <input type="submit" value="submit">
+    <div>
+        {% if post.image_1 %}
+                <div style="width: 250px;">
+                    이미지1<img src="{{ post.image_1.url }}" alt="post image_1" style="width: 100%;">
+                    <input type="file" name="image_1" id="post-edit"><br>
+                </div>
+        {% endif %}
+        {% if post.image_2 %}
+                <div style="width: 250px;">
+                    이미지2<img src="{{ post.image_2.url }}" alt="post image_2" style="width: 100%;">
+                    <input type="file" name="image_2" id="post-edit"><br>
+                </div>
+        {% endif %}
+        {% if post.image_3 %}
+                <div style="width: 250px;">
+                    이미지3<img src="{{ post.image_3.url }}" alt="post image_3" style="width: 100%;">
+                    <input type="file" name="image_3" id="post-edit"><br>
+                </div>
+        {% endif %}
+       
+        <!-- 이미지2<input type="file" name="image_2"><br>
+        이미지3<input type="file" name="image_3"><br> -->
+    </div>
+    <input type="submit" value="submit" onclick="alert('업데이트 완료')">
    </form>
 
    <div>

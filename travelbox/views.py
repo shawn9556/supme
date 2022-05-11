@@ -20,7 +20,7 @@ def create(request):
         mk_box.food = request.POST.get('food')
         mk_box.activity = request.POST.get('activity')
         mk_box.sightseeing = request.POST.get('sightseeing')
-        mk_box.place_name = request.POST['place_name']
+        mk_box.place_name = request.POST.get("place_name")
         mk_box.traffic = request.POST.get('traffic')
         if request.FILES.get("image_1"):          
             mk_box.image_1 = request.FILES['image_1']
@@ -28,8 +28,11 @@ def create(request):
             mk_box.image_2 = request.FILES['image_2']
         if request.FILES.get("image_3"):  
             mk_box.image_3 = request.FILES['image_3']
-            
+
+        if mk_box.place_name == "none":
+            return redirect("travelbox:create")   
         mk_box.save()
+        
     
         return render(request, 'travelbox/box_create.html')
 
@@ -76,11 +79,20 @@ def box_update(request, post_id):
         target_post.food = request.POST['food']
         target_post.activity = request.POST['activity']
         target_post.sightseeing = request.POST['sightseeing']
-        if request.FILES.get("image"):
+        if request.FILES.get("image_1"):
             print('ok')
-            target_post.image = request.FILES['image']
+            target_post.image_1 = request.FILES['image_1']
+        if request.FILES.get("image_2"):
+            print('ok')
+            target_post.image_2 = request.FILES['image_2']
+        if request.FILES.get("image_3"):
+            print('ok')
+            target_post.image_3 = request.FILES['image_3']
         target_post.save()
         
+        
+
+
         return HttpResponseRedirect('/travelbox/read-all/')
 
 
@@ -105,6 +117,7 @@ def mybox(request, post_id):
     }
 
     if request.method =='POST':
+        print("here")
     
         get_pic = GetPic()
         get_pic.box_id = read
@@ -117,9 +130,14 @@ def mybox(request, post_id):
             get_pic.user_image_3 = request.FILES['user_image_3']
         get_pic.save()
 
-        return redirect("travelbox:mybox", post_id)
+        return render(request, "travelbox/mybox_submit_results.html", {
+            "success": True,
+        })
+
+        # return redirect("travelbox:home")
 
     return render(request, "travelbox/mybox.html", context)
+   
 
 
 def weather(request):
@@ -156,3 +174,37 @@ def weather(request):
 
     context = {'weather_data' : weather_data, 'form' : form}
     return render(request, 'travelbox/weather.html', context) #returns the index.html te
+
+
+def home(request):
+    return render(request,  'travelbox/home.html')
+
+    
+def test(request, post_id):
+    read = Travel_box.objects.get(id = post_id)
+    context = {
+        'post': read,
+    }
+
+    if request.method =='POST':
+        print("here")
+    
+        get_pic = GetPic()
+        get_pic.box_id = read
+
+        if request.FILES.get("user_image_1"):          
+            get_pic.user_image_1 = request.FILES['user_image_1']
+        if request.FILES.get("user_image_2"):  
+            get_pic.user_image_2 = request.FILES['user_image_2']
+        if request.FILES.get("user_image_3"):  
+            get_pic.user_image_3 = request.FILES['user_image_3']
+        get_pic.save()
+
+        return render(request, "travelbox/mybox_submit_results.html", {
+            "success": True,
+        })
+
+        # return redirect("travelbox:home")
+
+    return render(request, "travelbox/index.html", context)
+    

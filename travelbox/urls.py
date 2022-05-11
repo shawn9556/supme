@@ -13,5 +13,7 @@ urlpatterns = [
     path('delete/<int:post_id>/', views.delete, name='delete'),
     path('mybox/<int:post_id>/', views.mybox, name='mybox'),
     path('weather/', views.weather, name='weather'),
+    path('home/', views.home, name='home'),
+    path('test/<int:post_id>/', views.test, name='test'),
 
 ]

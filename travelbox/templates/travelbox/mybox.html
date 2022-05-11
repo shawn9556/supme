@@ -55,35 +55,36 @@
       <div id="Toggle4" style="display:none">{{post.sightseeing}}</div>
     </section>
     
-         
+   
       <section>
+       
               <button id="btn_toggle5" ><h2>미션</h2></button>
               <div id="Toggle5" style="display:none">
                 미션이미지1<br>
                 {% if post.image_1 %}
                 <div style="width: 250px;">
-                    <img src="{{ post.image_1.url }}" alt="post image_2" style="width: 100%;">
+                    <img src="{{ post.image_1.url }}" alt="post image_1" style="width: 100%;">
                 </div>
                 {% endif %}
                 <input type="file" name="user_image_1" form="post-write"><br>
                 미션이미지2<br>
                 {% if post.image_2 %}
                 <div style="width: 250px;">
-                    <img src="{{ post.image_2.url }}" alt="post image_3" style="width: 100%;">
+                    <img src="{{ post.image_2.url }}" alt="post image_2" style="width: 100%;">
                 </div>
                 {% endif %}
                 <input type="file" name="user_image_2" form="post-write"><br>
                 미션이미지3<br>
                 {% if post.image_3 %}
                 <div style="width: 250px;">
-                    <img src="{{ post.image_3.url }}" alt="post image" style="width: 100%;">
+                    <img src="{{ post.image_3.url }}" alt="post image_3" style="width: 100%;">
                 </div>
                 {% endif %}
                 <input type="file" name="user_image_3" form="post-write"><br><br>
                 
             </div>
             </section>
-            <form action="{% url 'travelbox:mybox' post.id %}" id="post-write"  method="post" enctype="multipart/form-data">
+            <form action="{% url 'travelbox:mybox' post.id %}" id="post-write"  method="post" enctype="multipart/form-data"> 
               {% csrf_token %}        
             <input type="submit" value="submit">
           </form>
