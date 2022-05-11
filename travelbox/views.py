@@ -16,12 +16,17 @@ def create(request):
     elif request.method =='POST':
         mk_box = Travel_box()
         # mk_box.id = request.POST['id']
-        mk_box.accomdation = request.POST.get('accomdation')
-        mk_box.food = request.POST.get('food')
-        mk_box.activity = request.POST.get('activity')
-        mk_box.sightseeing = request.POST.get('sightseeing')
+        mk_box.sub_title = request.POST.get('sub_title')
+        mk_box.script = request.POST.get('script')
         mk_box.place_name = request.POST.get("place_name")
+        mk_box.activity = request.POST.get('activity')
+        mk_box.accomdation = request.POST.get('accomdation')
+        mk_box.food = request.POST.get('food')      
+        mk_box.sightseeing = request.POST.get('sightseeing')      
         mk_box.traffic = request.POST.get('traffic')
+
+        if request.FILES.get("image_head"):          
+            mk_box.image_head = request.FILES['image_head']
         if request.FILES.get("image_1"):          
             mk_box.image_1 = request.FILES['image_1']
         if request.FILES.get("image_2"):  

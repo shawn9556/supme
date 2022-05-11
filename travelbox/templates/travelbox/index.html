@@ -27,11 +27,11 @@
         <div class="container px-4 px-lg-5">
             <!-- Heading Row-->
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
-                {% if post.image_1 %}
+                {% if post.image_head %}
                 <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{{ post.image_1.url }}" alt="post image" /></div>
                 {% endif %}
                 <div class="col-lg-5">
-                    <h1 class="font-weight-light">물도 포근한 강월도 영월</h1>
+                    <h1 class="font-weight-light">{{ post.sub_title }}</h1>
                     <!-- <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
                     <a class="btn btn-primary" href="#!">Call to Action!</a> -->
                 </div>
@@ -41,12 +41,7 @@
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
                 <div class="card-body">
-                    <p class="text-white m-0">2박 3일 쉼을 위한 공간이예요. 
-                        모던한 2인실 별장에서 휴식의 시간을 보내세요. 
-                    많이 움직이지 말고, 천천히 호흡하세요. 
-                    쉼을 위한 당신만의 일정도 같이 보내드려요! 
-
-                    </p>
+                    <p class="text-white m-0">{{ post.script }}</p>
                 </div>
             </div>
 
