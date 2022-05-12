@@ -30,6 +30,32 @@ class Travel_box(models.Model):
         blank = True
     )
 
+    image_accomdation = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True
+    )
+
+    image_food = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True
+    )
+
+    image_activity = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True
+    )
+
+    image_sightseeing = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True
+    )
+
+    
+
+
+
+
+
 class GetPic(models.Model):
      travel_box_id = models.CharField(max_length=32)
      travel_box = models.ForeignKey(Travel_box, name="box_id", on_delete=models.CASCADE, null=True, blank=True)
@@ -46,7 +72,7 @@ class GetPic(models.Model):
         blank = True
     )
 
-     check_num = models.IntegerField() #체크박스해당 숫자
+    #  check_num = models.IntegerField() #체크박스해당 숫자
 
 
 class City(models.Model):
@@ -57,3 +83,27 @@ class City(models.Model):
 
     class Meta: #show the plural of city as cities instead of citys
         verbose_name_plural = 'cities'
+
+# class Local(models.Model):
+
+#     local_name = models.ForeignKey(Travel_box, name="local_name", on_delete=models.CASCADE, null=True, blank=True)
+
+#     image_accomdation = models.ImageField(
+#         upload_to = 'landing/images/%Y/%m/%d/%H/',
+#         blank = True
+#     )
+
+#     image_food = models.ImageField(
+#         upload_to = 'landing/images/%Y/%m/%d/%H/',
+#         blank = True
+#     )
+
+#     image_activity = models.ImageField(
+#         upload_to = 'landing/images/%Y/%m/%d/%H/',
+#         blank = True
+#     )
+
+#     image_sightseeing = models.ImageField(
+#         upload_to = 'landing/images/%Y/%m/%d/%H/',
+#         blank = True
+#     )

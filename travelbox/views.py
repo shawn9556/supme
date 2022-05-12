@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 
-from travelbox.models import GetPic, Travel_box, City
+from travelbox.models import *
 import requests
 from .forms import CityForm
 
@@ -15,6 +15,7 @@ def create(request):
         return render(request, 'travelbox/box_create.html')
     elif request.method =='POST':
         mk_box = Travel_box()
+       
         # mk_box.id = request.POST['id']
         mk_box.sub_title = request.POST.get('sub_title')
         mk_box.script = request.POST.get('script')
@@ -34,9 +35,23 @@ def create(request):
         if request.FILES.get("image_3"):  
             mk_box.image_3 = request.FILES['image_3']
 
+        if request.FILES.get("image_accomdation"):          
+            mk_box.image_accomdation = request.FILES['image_accomdation']
+        if request.FILES.get("image_food"):          
+            mk_box.image_food = request.FILES['image_food']
+        if request.FILES.get("image_activity"):          
+            mk_box.image_activity = request.FILES['image_activity']
+        if request.FILES.get("image_sightseeing"):          
+            mk_box.image_sightseeing = request.FILES['image_sightseeing']
+
+
+
+
+
         if mk_box.place_name == "none":
             return redirect("travelbox:create")   
         mk_box.save()
+       
         
     
         return render(request, 'travelbox/box_create.html')
@@ -217,8 +232,10 @@ def test(request, post_id):
 
 def test2(request, post_id):
     read = Travel_box.objects.get(id = post_id)
+    # local_chulwon = Chulwon.objects.all()
     context = {
-        'post': read,
+        'post': read, 
+       
     }
 
     if request.method =='POST':
