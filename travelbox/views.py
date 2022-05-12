@@ -133,6 +133,8 @@ def mybox(request, post_id):
             get_pic.user_image_2 = request.FILES['user_image_2']
         if request.FILES.get("user_image_3"):  
             get_pic.user_image_3 = request.FILES['user_image_3']
+
+        
         get_pic.save()
 
         return render(request, "travelbox/mybox_submit_results.html", {

@@ -64,6 +64,7 @@
                 {% if post.image_1 %}
                 <div style="width: 250px;">
                     <img src="{{ post.image_1.url }}" alt="post image_1" style="width: 100%;">
+                     <input type="checkbox" value="1">
                 </div>
                 {% endif %}
                 <input type="file" name="user_image_1" form="post-write"><br>
@@ -71,6 +72,7 @@
                 {% if post.image_2 %}
                 <div style="width: 250px;">
                     <img src="{{ post.image_2.url }}" alt="post image_2" style="width: 100%;">
+                    <input type="checkbox" value="2">
                 </div>
                 {% endif %}
                 <input type="file" name="user_image_2" form="post-write"><br>
@@ -78,6 +80,7 @@
                 {% if post.image_3 %}
                 <div style="width: 250px;">
                     <img src="{{ post.image_3.url }}" alt="post image_3" style="width: 100%;">
+                    <input type="checkbox" value="3">
                 </div>
                 {% endif %}
                 <input type="file" name="user_image_3" form="post-write"><br><br>
