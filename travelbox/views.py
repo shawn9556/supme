@@ -212,4 +212,32 @@ def test(request, post_id):
         # return redirect("travelbox:home")
 
     return render(request, "travelbox/index.html", context)
+
+def test2(request, post_id):
+    read = Travel_box.objects.get(id = post_id)
+    context = {
+        'post': read,
+    }
+
+    if request.method =='POST':
+        print("here")
+    
+        get_pic = GetPic()
+        get_pic.box_id = read
+
+        if request.FILES.get("user_image_1"):          
+            get_pic.user_image_1 = request.FILES['user_image_1']
+        if request.FILES.get("user_image_2"):  
+            get_pic.user_image_2 = request.FILES['user_image_2']
+        if request.FILES.get("user_image_3"):  
+            get_pic.user_image_3 = request.FILES['user_image_3']
+        get_pic.save()
+
+        return render(request, "travelbox/mybox_submit_results.html", {
+            "success": True,
+        })
+
+      
+
+    return render(request, "travelbox/test_2.html", context)
     

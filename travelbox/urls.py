@@ -15,5 +15,6 @@ urlpatterns = [
     path('weather/', views.weather, name='weather'),
     path('home/', views.home, name='home'),
     path('test/<int:post_id>/', views.test, name='test'),
+    path('test2/<int:post_id>/', views.test2, name='test2'),
 
 ]
