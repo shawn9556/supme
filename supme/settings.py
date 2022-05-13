@@ -37,7 +37,24 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "mypage"
+    'landing',
+    'mypage',
+    'supme',
+    'survey',
+    'travelbox',
+
+
+
+
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.naver",
+    "allauth.socialaccount.providers.kakao",
+
+ 
+
 ]
 
 MIDDLEWARE = [
@@ -131,4 +148,4 @@ AUTHENTICATION_BACKENDS=[
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 SITE_ID = 1
-LOGIN_REDIRECT_URL = "/landing/index/"
+LOGIN_REDIRECT_URL = "/mypage/profile/"

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from landing.models import Post
+from mypage.models import Post
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 # Create your views here.

@@ -44,7 +44,7 @@
         
                     <br>
                     <div class="profil-contents" >
-                        <form action="{% url 'landing:update' %}" id="post-edit" method="post">
+                        <form action="{% url 'mypage:update' %}" id="post-edit" method="post">
                             {% csrf_token %} 
                             <span class="subheading mb-5">이름: <input  type="text" name="name" value="{{post.name}}"></span><br>
                             <span class="subheading mb-5">캐릭터: <input  type="text" name="nickname" value="{{post.nickname}}"></span><br>

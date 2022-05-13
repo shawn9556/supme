@@ -47,7 +47,7 @@
                     <br>
                     <div class="profil-contents" >
                         
-                        <form id="login-form" action="{% url 'landing:login' %}" method="post">
+                        <form id="login-form" action="{% url 'mypage:login' %}" method="post">
                             {% csrf_token %}
                             <!-- Name input-->
                             <div class="form-floating mb-3">
@@ -59,12 +59,15 @@
                                 <input name="password" class="form-control" id="password" type="password" placeholder="Enter your name..." data-sb-validations="required" />
                                 <label for="password">Password</label>
                             </div>
-                            <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Login</button></div>
+                            <!-- login Button-->
+                            <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit" >Login</button></div>
+                            
+
                         </form>
                        
 
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end"><button class="btn btn-primary me-md-2" type="submit" style="background-color:orange; border-color:orange;"><a href="/mypage/signup/" style="color:white; text-decoration:none;">회원가입</a></button>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button class="btn btn-primary me-md-2" type="submit" style="background-color:orange; border-color:orange;"><a href="/mypage/signup/" style="color:white; text-decoration:none;">회원가입</a></button>
                         </div>
                 
                         
