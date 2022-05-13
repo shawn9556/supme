@@ -13,8 +13,34 @@
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="/static/landing/css/styles.css" rel="stylesheet" />
+        <link href="/static/landing/css/styles.css" rel="stylesheet" />      
         <title>Login</title>
+        <style>
+            .btn {
+                font-size: 80%;
+                border-radius: 0rem;
+                letter-spacing: .1rem;
+                font-weight: bold;
+                padding: 1rem;
+                transition: all 0.2s;
+                border-radius: 15px;
+            }
+            .btn-naver {
+                color: white;
+                background-color: #03c75a;
+                border-color:#03c75a;
+            }
+            .btn-kakao {
+                color: white;
+                background-color: #FEE500;
+                border-color: #FEE500;
+            }
+            .btn-google {
+                color: white;
+                background-color: #ea4335;
+                border-color: #ea4335;
+            }
+        </style>
     </head>
     <body id="page-top" background="/static/landing/assets/img/space.jpg">
         <!-- Navigation-->
@@ -60,25 +86,23 @@
                                 <label for="password">Password</label>
                             </div>
                             <!-- login Button-->
-                            <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit" >Login</button></div>
+                            <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit" style="color:white" >Login</button></div>
                             
 
                         </form>
                        
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button class="btn btn-primary me-md-2" type="submit" style="background-color:orange; border-color:orange;"><a href="/mypage/signup/" style="color:white; text-decoration:none;">회원가입</a></button>
+                            <button class="btn btn-lg btn-naver " type="submit">네이버 로그인</button>
+                            <button class="btn btn-lg btn-kakao " type="submit"> 카카오 로그인</button>
+                            <button class="btn btn-lg btn-google" type="submit">구글 로그인</button>
+                            <button class="btn btn-lg" type="submit" style="background-color:orange; border-color:orange; color:white"> 회원가입</button>
                         </div>
-                
                         
-                        <form action="{% provider_login_url 'naver' %}" method="post">
-                            {% csrf_token %}
-                            <input type="submit" value="Naver">
-                        </form>
-                        <form action="{% provider_login_url 'kakao' %}" method="post">
-                            {% csrf_token %}
-                            <input type="submit" value="Kakao">
-                        </form>
+                        
+
+                       
+
                         
                             
                     </div>
