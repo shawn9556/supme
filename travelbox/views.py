@@ -22,8 +22,10 @@ def create(request):
         mk_box.place_name = request.POST.get("place_name")
         mk_box.activity = request.POST.get('activity')
         mk_box.accomdation = request.POST.get('accomdation')
+        mk_box.addr_accomdation = request.POST.get('addr_accomdation')
         mk_box.food = request.POST.get('food')      
         mk_box.sightseeing = request.POST.get('sightseeing')      
+        # mk_box.sightseeing_addr_link = request.POST.get('sightseeing_addr_link')      
         mk_box.traffic = request.POST.get('traffic')
 
         if request.FILES.get("image_head"):          
@@ -250,6 +252,17 @@ def test2(request, post_id):
             get_pic.user_image_2 = request.FILES['user_image_2']
         if request.FILES.get("user_image_3"):  
             get_pic.user_image_3 = request.FILES['user_image_3']
+        #  if request.FILES.get("image_accomdation"):  
+        #     get_pic.image_accomdation = request.FILES['image_accomdation']
+        #  if request.FILES.get("image_food"):  
+        #     get_pic.image_food = request.FILES['image_food']
+        #  if request.FILES.get("image_activity"):  
+        #     get_pic.image_activity = request.FILES['image_activity']
+        #  if request.FILES.get("image_sightseeing"):  
+        #     get_pic.image_sightseeing = request.FILES['image_sightseeing']
+        #  if request.FILES.get("image_"):  
+        #     get_pic.image_ = request.FILES['image_']
+         
         get_pic.save()
 
         return render(request, "travelbox/mybox_submit_results.html", {

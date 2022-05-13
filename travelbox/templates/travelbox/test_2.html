@@ -28,12 +28,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">교통</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">숙소</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">음식</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">액티비티</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">활동</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">미션</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#traffic">교통</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#accomdation">숙소</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#food">음식</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#activity">액티비티</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#sightseeing">경치</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#mission">미션</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,9 +42,11 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="{%static 'assets/avataaars.svg'%}" alt="..." />
+                {% if post.image_1 %}
+                <img class="masthead-avatar mb-5" src="{{ post.image_head.url }}" alt="..." />
+                {% endif %}
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">CITY</h1>
+                <h1 class="masthead-heading text-uppercase mb-0">{{post.place_name}}</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -52,7 +54,10 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">EXOTIC</p>
+                <h2 class="masthead-subheading font-weight-light mb-0">{{post.sub_title}}</h2>
+                <br>
+                <p class="masthead-subheading font-weight-light mb-0">{{post.script}}</p>
+                
             </div>
         </header>
         <!-- Portfolio Section-->
@@ -74,7 +79,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{%static 'assets/cabin.png'%}" alt="..." />
+                            <img class="img-fluid" id="traffic" src="{%static 'assets/cabin.png'%}" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 2-->
@@ -83,7 +88,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{%static 'assets/cake.png'%}" alt="..." />
+                            <img class="img-fluid" id="accomdation" src="{%static 'assets/cake.png'%}" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 3-->
@@ -92,7 +97,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{%static 'assets/circus.png'%}" alt="..." />
+                            <img class="img-fluid" id="food" src="{%static 'assets/circus.png'%}" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 4-->
@@ -101,7 +106,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{%static 'assets/game.png'%}" alt="..." />
+                            <img class="img-fluid" id="activity" src="{%static 'assets/game.png'%}" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 5-->
@@ -110,7 +115,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{%static 'assets/safe.png'%}" alt="..." />
+                            <img class="img-fluid" id="sightseeing" src="{%static 'assets/safe.png'%}" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 6-->
@@ -119,56 +124,26 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{%static 'assets/submarine.png'%}" alt="..." />
+                            <img class="img-fluid" id="mission" src="{%static 'assets/submarine.png'%}" alt="..." />
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-
+        <section>
                 <!-- Contact Section Form-->
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xl-7">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Name input-->
-                           
-                            <!-- Email address input-->
-                           
-                            <!-- Phone number input-->
-                           
-                            <!-- Message input-->
-                            
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <!-- Submit Button-->
-                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
+                       
+                        <form action="{% url 'travelbox:mybox' post.id %}" id="post-write"  method="post" enctype="multipart/form-data">
+                            {% csrf_token %} 
+                            <!-- <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button> -->
+                            <input class="btn btn-primary btn-xl " type="submit" value="Send">
                         </form>
                     </div>
                 </div>
-            </div>
+            
         </section>
         <!-- Footer-->
 
@@ -195,9 +170,9 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cabin.png" alt="..." />
+                                    <img class="img-fluid rounded mb-5" src="{%static 'assets/cabin.png'%}" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-4">{{post.traffic}}</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -227,9 +202,13 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
+                                    {% if post.accomdation %}
+                                    <!-- <a href="http://www.morningcalmvillage.com/"><img class="img-fluid rounded mb-5" src="{{ post.image_accomdation.url }}" alt="..." /></a> -->
+                                    <a href="{{post.addr_accomdation}}"><img class="img-fluid rounded mb-5" src="{{ post.image_accomdation.url }}" alt="..." /></a>
+                                   
+                                    {% endif %}
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-4">{{post.accomdation}}</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -259,9 +238,11 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/circus.png" alt="..." />
+                                    {% if post.food %}
+                                    <img class="img-fluid rounded mb-5" src="{{ post.image_food.url }}" alt="..." />
+                                    {% endif %}
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-4">{{post.food}}</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -291,9 +272,11 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/game.png" alt="..." />
+                                    {% if post.activity %}
+                                    <img class="img-fluid rounded mb-5" src="{{ post.image_activity.url }}" alt="..." />
+                                    {% endif %}
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-4">{{post.activity}}</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -315,7 +298,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">활동</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">경치</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -323,9 +306,11 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/safe.png" alt="..." />
+                                    {% if post.sightseeing %}
+                                    <img class="img-fluid rounded mb-5" src="{{ post.image_sightseeing.url }}" alt="..." />
+                                    {% endif %}
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-4">{{post.sightseeing}}</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -354,10 +339,32 @@
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    
+                                    <p class="mb-4">
+                                        <div id="Toggle5"> 미션이미지1<br>
+                                            {% if post.image_1 %}
+                                            <div style="width: 250px;">
+                                                <img src="{{ post.image_1.url }}" alt="post image_1" style="width: 100%;">
+                                            </div>
+                                            {% endif %}
+                                            <input type="file" name="user_image_1" form="post-write"><br>
+                                            미션이미지2<br>
+                                            {% if post.image_2 %}
+                                            <div style="width: 250px;">
+                                                <img src="{{ post.image_2.url }}" alt="post image_2" style="width: 100%;">
+                                            </div>
+                                            {% endif %}
+                                            <input type="file" name="user_image_2" form="post-write"><br>
+                                            미션이미지3<br>
+                                            {% if post.image_3 %}
+                                            <div style="width: 250px;">
+                                                <img src="{{ post.image_3.url }}" alt="post image_3" style="width: 100%;">
+                                            </div>
+                                            {% endif %}
+                                            <input type="file" name="user_image_3" form="post-write">
+                
+                                        </div>
+                                    </p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window

@@ -9,9 +9,11 @@ class Travel_box(models.Model):
     place_name = models.TextField(max_length=16, blank= True, null = True)
     traffic = models.TextField(max_length=1024, blank=True, null = True)
     accomdation = models.TextField(max_length=8192, blank=True, null = True)
+    addr_accomdation = models.TextField(max_length=2048, blank=True, null = True)
     food  = models.TextField(max_length=1024, blank=True, null = True)
     activity = models.TextField(max_length=1024, blank=True, null = True)
     sightseeing = models.TextField(max_length=8192, blank=True, null = True)
+    # sightseeing_addr_link = models.TextField(max_length=2048, blank=True, null = True)
     
     image_head = models.ImageField(
         upload_to = 'landing/images/%Y/%m/%d/%H/',
