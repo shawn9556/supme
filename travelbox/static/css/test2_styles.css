@@ -10,6 +10,32 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+ #headersj{
+  height: 90vh;
+}
+#headersjdiv{
+  width: 100%;
+  height: 90vh; 
+  margin-top: -20vh;
+  
+
+  
+}
+#placeboxMain{
+  margin-top: -30vh; 
+  width: 50%;
+  opacity: 0.5; 
+  color: black; 
+  background-color: white;
+ 
+
+  
+}
+
+
+
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
