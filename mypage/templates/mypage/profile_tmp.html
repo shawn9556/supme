@@ -75,9 +75,10 @@
         <!-- Profile Card -->
             <div class="wrapper">
                 <div class="profile-card js-profile-card">
-                <div class="profile-card__img">
+                <div class="profile-card__img" >
                     <img src="/static/landing/assets/img/char1.jpg" width="100" style="border-radius: 50px;" ></img>
                 </div>
+                
             
                 <div class="profile-card__cnt js-profile-cnt">
                     <div class="card-header">
@@ -88,12 +89,15 @@
                         </h3><br>
                         <h4 >SUPME 의 <span class="text-primary">{{post.id}}</span>N 번째 탑승객입니다. </h4>
                     </div>
-                    <div class="profile-contents">
-                        <span >Name &emsp;&emsp;  : &nbsp; {{post.name}} </span><br> 
-                        <span >Character &emsp;&nbsp; :&nbsp;  {{post.nickname}} </span><br>
-                        <span >Adresse &emsp;&nbsp; :&nbsp;  {{post.adresshome}} </span><br>
-                        <span >Number &nbsp;&nbsp; :&nbsp; {{post.phonenumber}} </span><br>
-                        <span >Email &emsp;&nbsp; :&nbsp; {{post.emailadress}} </span><br>
+                    <div class="profile-contents" >
+                        <div class="profile-content-wrapper">
+                            <p class="profile-content">Name : dkd {{post.name}}</p>
+                            <p class="profile-content">Name : Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium neque quae officia ipsa illum placeat repellat atque ullam deleniti quos? Nesciunt soluta iste voluptatum, illo temporibus architecto dolorum quibusdam vel?</p>
+                            <p class="profile-content">Character : d  {{post.nickname}}</p>
+                            <p class="profile-content">Address : d {{post.adresshome}} </p>
+                            <p class="profile-content">Number : d {{post.phonenumber}} </p>
+                            <p class="profile-content">Email : d {{post.emailadress}} </p>
+                        </div>
                         <!-- update button -->
                         <div class="profile-card-ctr d-grid gap-2 d-md-flex justify-content-md-end">
                             <button class="profile-card__button button--orange" type="submit" id="updatebutton" name="update" value="update">
@@ -205,22 +209,22 @@
                             font-weight: 400;
                             }
                             /*Icons in the ProgressBar*/
-                            #progressbar #account:before {
+                            #progressbar #preparing:before {
                             font-family: FontAwesome;
                             content: "\f281";
                             }
 
-                            #progressbar #personal:before {
+                            #progressbar #prepared:before {
                             font-family: FontAwesome;
                             content: "\f281";
                             }
 
-                            #progressbar #payment:before {
+                            #progressbar #on_travel:before {
                             font-family: FontAwesome;
                             content: "\f281";
                             }
 
-                            #progressbar #confirm:before {
+                            #progressbar #finish:before {
                             font-family: FontAwesome;
                             content: "\f4fb";
                             }
@@ -263,11 +267,10 @@
                         <div id="msform" >
                             <!-- progressbar -->
                             <ul id="progressbar" >
-                                
-                                <li class="active" id="account"><strong>Accepted</strong></li>
-                                <li id="personal"><strong>Preparing</strong></li>
-                                <li id="payment"><strong>Almost Done</strong></li>
-                                <li id="confirm"><strong>Finish</strong></li>
+                                <li name="preparing" class="active" id="preparing"><strong>여행 준비중</strong></li>
+                                <li name="prepared" id="prepared"><strong>여행 준비 완료</strong></li>
+                                <li name="on_travel" id="on_travel"><strong>여행 중</strong></li>
+                                <li name="finish" id="finish"><strong>여행 완료</strong></li>
                             </ul>
                         </div>
 
