@@ -11383,5 +11383,18 @@ section.resume-section .resume-section-content {
 
 /* ----------------------------------progress bar------------------------------------ */
 
-
+.profile-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
  
+.profile-content {
+  width: 25%;
+  margin: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+  text-overflow: ellipsis;
+}
