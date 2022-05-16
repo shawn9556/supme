@@ -13,7 +13,7 @@ urlpatterns = [
     path('delete/<int:post_id>/', views.delete, name='delete'),
     path('mybox/<int:post_id>/', views.mybox, name='mybox'),
     path('weather/', views.weather, name='weather'),
-    path('home/', views.home, name='home'),
+    path('home/<int:post_id>/', views.home, name='home'),
     path('test/<int:post_id>/', views.test, name='test'),
     path('test2/<int:post_id>/', views.test2, name='test2'),
 

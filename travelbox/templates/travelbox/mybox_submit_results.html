@@ -23,7 +23,7 @@
         window.addEventListener("load", () => {
             {% if success %}
             alert("success!");
-            location.href = '{% url "travelbox:home" %}'
+            location.href = '{% url "travelbox:home" post.id %}'
             {% else %}
             alert("fail!");
             location.href = '{% url "travelbox:mybox" box_id %}';

@@ -5,3 +5,11 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+
+
+if(document.getElementById('rd').checked == true) {   
+    document.write("radio button is selected"); 
+    console.log(document.getElementById('rd').value)
+} else {  
+    document.write("radio button is not selected");   
+}  

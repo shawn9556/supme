@@ -52,3 +52,23 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+
+if(document.getElementById('rd').checked == true) {   
+    document.write("radio button is selected"); 
+    console.log(document.getElementById('rd').value)
+} else {  
+    document.write("radio button is not selected");   
+}  
+
+
+$(document).ready(function () {
+    $('#rd').click(function () {
+      // getter
+      var radioVal = $('input[name="checked"]:checked').val();
+      alert(radioVal);
+        // {{check_num}} = radioVal;
+    });
+
+    
+  });

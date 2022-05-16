@@ -200,8 +200,18 @@ def weather(request):
     return render(request, 'travelbox/weather.html', context) #returns the index.html te
 
 
-def home(request):
-    return render(request,  'travelbox/home.html')
+def home(request, post_id):
+    travel_box = Travel_box.objects.get(id=post_id)
+    getpic = GetPic.objects.filter(box_id=travel_box).order_by("-pk")[0]
+
+    context = {
+        # 'post': post,
+        "getpic": getpic,
+        
+    }
+
+    return render(request, 'travelbox/home.html', context)
+    
 
     
 def test(request, post_id):
@@ -223,10 +233,9 @@ def test(request, post_id):
         if request.FILES.get("user_image_3"):  
             get_pic.user_image_3 = request.FILES['user_image_3']
         get_pic.save()
+        context["success"] = True
 
-        return render(request, "travelbox/mybox_submit_results.html", {
-            "success": True,
-        })
+        return render(request, "travelbox/mybox_submit_results.html", {context})
 
         # return redirect("travelbox:home")
 
@@ -236,8 +245,7 @@ def test2(request, post_id):
     read = Travel_box.objects.get(id = post_id)
     # local_chulwon = Chulwon.objects.all()
     context = {
-        'post': read, 
-       
+        'post': read,
     }
 
     if request.method =='POST':
@@ -245,7 +253,7 @@ def test2(request, post_id):
     
         get_pic = GetPic()
         get_pic.box_id = read
-
+        get_pic.checked = request.POST['checked']
         if request.FILES.get("user_image_1"):          
             get_pic.user_image_1 = request.FILES['user_image_1']
         if request.FILES.get("user_image_2"):  
@@ -264,12 +272,13 @@ def test2(request, post_id):
         #     get_pic.image_ = request.FILES['image_']
          
         get_pic.save()
+        context["success"] = True
 
-        return render(request, "travelbox/mybox_submit_results.html", {
-            "success": True,
-        })
+        return render(request, "travelbox/mybox_submit_results.html", context)
 
       
 
     return render(request, "travelbox/test_2.html", context)
+
+
     
