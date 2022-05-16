@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
+<head>
+    {% load static %}
+    <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -34,62 +35,76 @@
             $( "#datepicker4" ).datepicker();
         } );
         </script>
-    </head>
-    <body id="page-top" background="/static/landing/assets/img/space.jpg" >
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background-color:deeppink;" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">SUPME</span>
-                <span class="d-none d-lg-block"><iframe src="https://giphy.com/embed/wPyDWwurn8XEWdR9ol" width="240"  frameBorder="0" class="giphy-embed img-fluid mx-auto mb-2" ></iframe></span>
-                <!-- <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span> -->
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#profile">Profile</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#gotravel">Go Travel</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#myalbum">My Album</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/mypage/contact/">contact</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/mypage/login/">logout</a></li>
-                </ul>
-            </div>
-        </nav>
-        <!-- Page Content-->
-        <div class="container-fluid p-0" >
-            <!-- Profile-->
-            <form class="resume-section" id="profile" >
-                <div class="resume-section-content">
-                    <!--profile card-->
-                    <div class="card text-center" style="margin-top:60px; opacity: 0.85;">
-                        <div class="card-header">
-                            <img src="/static/landing/assets/img/char1.jpg" width="100" style="border-radius: 50px; margin-top:20px;" ></img>
-                            <h3 style="margin-top:20px;">
-                                화성에서온 
-                                <span class="text-primary">{{post.nickname}}</span>
-                                님!
-                            </h3><br>
-                            <h4 >SUPME 의 <span class="text-primary">{{post.id}}</span>N 번째 탑승객입니다. </h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="profile-contents">
-                                <span >Name &emsp;&emsp;  : &nbsp; {{post.name}} </span><br> 
-                                <span >Character &emsp;&nbsp; :&nbsp;  {{post.nickname}} </span><br>
-                                <span >Adresse &emsp;&nbsp; :&nbsp;  {{post.adresshome}} </span><br>
-                                <span >Number &nbsp;&nbsp; :&nbsp; {{post.phonenumber}} </span><br>
-                                <span >Email &emsp;&nbsp; :&nbsp; {{post.emailadress}} </span><br>
-                                    
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button id="updatebutton" class="btn btn-primary me-md-2" type="submit"><a href="/mypage/update/" style="color:white; text-decoration:none;">회원정보 변경</a></button>
-                                </div>
-                            </div>
-                        </div>
 
+        <!-- profile card 관련 css -->
+        <link rel="stylesheet" href= "{% static 'survey/css/style.css' %}">
+        <!-- 사진 크레딧 -->
+        <style>
+            #survey-credit {
+              display: flex;
+              align-self: flex-end;
+              font-size: x-small;
+            }
+          </style>
+</head>
+<body id="page-top" background="{% static 'survey/assets/supme-space.jpg' %}">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background-color:deeppink;" id="sideNav">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <span class="d-block d-lg-none">SUPME</span>
+            <span class="d-none d-lg-block"><iframe src="https://giphy.com/embed/wPyDWwurn8XEWdR9ol" width="240"  frameBorder="0" class="giphy-embed img-fluid mx-auto mb-2" ></iframe></span>
+            <!-- <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#profile">Profile</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#gotravel">Go Travel</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#myalbum">My Album</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/mypage/contact/">contact</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/mypage/login/">logout</a></li>
+            </ul>
+        </div>
+    </nav>
 
-                        <div class="accordion-item">
+<!-- Page Content -->
+<div class="container-fluid p-0" >
+    <!-- Profile-->
+    <form class="resume-section" id="profile" >
+        <div class="resume-section-content">
+        <!-- Profile Card -->
+            <div class="wrapper">
+                <div class="profile-card js-profile-card">
+                <div class="profile-card__img">
+                    <img src="/static/landing/assets/img/char1.jpg" width="100" style="border-radius: 50px;" ></img>
+                </div>
+            
+                <div class="profile-card__cnt js-profile-cnt">
+                    <div class="card-header">
+                        <h3 style="margin-top:20px;">
+                            화성에서온 
+                            <span class="text-primary">{{post.nickname}}</span>
+                            님!
+                        </h3><br>
+                        <h4 >SUPME 의 <span class="text-primary">{{post.id}}</span>N 번째 탑승객입니다. </h4>
+                    </div>
+                    <div class="profile-contents">
+                        <span >Name &emsp;&emsp;  : &nbsp; {{post.name}} </span><br> 
+                        <span >Character &emsp;&nbsp; :&nbsp;  {{post.nickname}} </span><br>
+                        <span >Adresse &emsp;&nbsp; :&nbsp;  {{post.adresshome}} </span><br>
+                        <span >Number &nbsp;&nbsp; :&nbsp; {{post.phonenumber}} </span><br>
+                        <span >Email &emsp;&nbsp; :&nbsp; {{post.emailadress}} </span><br>
+                        <!-- update button -->
+                        <div class="profile-card-ctr d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button class="profile-card__button button--orange" type="submit" id="updatebutton" name="update" value="update">
+                                <a href="/mypage/update/" style="color:white; text-decoration:none;">회원정보 변경</a>
+                            </button>
+                        </div>
+                        <!-- story button -->
                             <h2 class="accordion-header" id="headingTwo">
                                 <section class="mother">
-                                    <div>
-                                        <button style="border-radius: 15px;" class="collapsed btn btn-primary me-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <div class="story-card">
+                                        <button style="border-radius: 5rem;" class="collapsed btn btn-primary me-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                             <a style="font-size:20px; color:whitesmoke;">{{post.nickname}} story</a>
                                         </button>  
                                     </div> 
@@ -99,61 +114,57 @@
                                 <div class="accordion-body">
                                     <div class="card-group">
                                         <div class="card">
-                                            <div class="card card-body" >
+                                            <div class="card card-body">
                                                 2900년.. 화성에서는 착한 외계인들이 사는 몽땅 마을이 있었어요. 
-
+        
                                                 <br>꼬끼아쥬 테리어는 그 중에서도 제일 순수하기로 소문난 외계인이였어요. 
-
+        
                                                 <br>그러던 어느날 지구에서 온 한 인간을 만나게 되었어요. 
-
+        
                                                 <br>그 인간의 이름은 “서프테리우스”로 우주에서 안가본 곳이 없을 정도로 여행을 좋아하는 인간이었죠. 
-
+        
                                                 <br>꼬끼아쥬 테리어는 서프테리우스와 긴긴 이야기를 나누었어요.
-
-
+        
+        
                                                 <br>다른 사람들 사는 이야기... 다른 행성의 멋진 산과 다양한 해산물 맛집.. 
-
+        
                                                 <br>그 둘은 시간이 가는 줄 모르고 몇날 며칠을 밤을 새워 이야기를 나누었어요. 
-
+        
                                                 <br>꼬끼아쥬 테리어는 마음속에 무언가 불타오르는것을 느끼기 시작했어요.
-
+        
                                                 <br>‘나도 그곳에 가보고 싶다’ 
-
-
+        
+        
                                                 <br>한번도 가본 적 없는 그곳에 꼬끼아쥬는 가보고 싶다 생각했죠. 
-
+        
                                                 <br>꼬끼아쥬 테리어는 서프테리우스에게 이야기했어요. 
-
+        
                                                 <br>“서프테리우스, 어떻게하면 그런곳으로 여행을 다닐 수 있죠?”
-
+        
                                                 <br>서프테리우스는 지그시 꼬끼아쥬 테리어의 눈을 바라보다가 말했어요. 
-
+        
                                                 <br>“꼬끼아쥬 테리어님 , 정말 새로운 여행을 가고 싶으세요?”
-
+        
                                                 <br>“네, 서프테리우스님이 하신 경험을 저도 할 수 있다면 당장 떠날 채비를 할게요”
-
+        
                                                 <br>서프테리우스는 집 모양으로 생긴 우주선으로 꼬끼아쥬 테리어를 데려갔어요.
-
+        
                                                 <br>“꼬끼아쥬 테리어님, 어렵지 않아요. 이것만 있으면 바로 여행을 떠날 수 있죠. 
-
+        
                                                 <br>지금 바로 서프미에 탑승하세요”
-
+        
                                             </div>
                                         </div>
                                     
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                    
-                    <br>
-                
+                    </div>
+                </div>    
                 </div>
-            </form>
-            <hr class="m-0" />
-            
-        
+            </div>
+        </div>
+    </form>
             <!-- GO Travel-->
             <section class="resume-section" id="gotravel">
                 <div class="resume-section-content">
@@ -268,17 +279,6 @@
                         </div>
 
                     </div>
-
-
-
-
-
-
-
-
-
-
-
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5" style="margin-top:80px;">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">OPTION1-서프미 부탁해</h3>
@@ -290,9 +290,7 @@
                             <span class="text-primary">
                                 <p>체크아웃&nbsp;&nbsp;:&emsp; <input type="text" id="datepicker2"></p>
                             </span>
-                            <span class="text-primary">
-                                <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#goModal">GO!</a>
-                            </span>
+                           
                             <!-- Modal -->
                             <div class="modal fade" id="goModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -313,8 +311,6 @@
                             </div>
 
                         </div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">OPTION2-서프미 잠깐만</h3>
                             <div class="subheading mb-3">바꾸고싶은게 생겼어 !</div>
@@ -346,18 +342,6 @@
                                 <option>다좋아</option>
                             </select>
                             
-                            
-                            <!--날짜/일수/-->
-                            <span class="text-primary datepicker">
-                                <p>체크인&emsp;&nbsp;:&emsp; <input type="text" id="datepicker3"></p>
-                            </span>
-                            <span class="text-primary">
-                                <p>체크아웃&nbsp;&nbsp;:&emsp; <input type="text" id="datepicker4"></p>
-                            </span>
-                            <!-- go buttom-->
-                            <span class="text-primary">
-                                <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#goModal">GO!</a>
-                            </span>
                             <!-- Modal -->
                             <div class="modal fade" id="goModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -376,14 +360,12 @@
                                 </div>
                                 </div>
                             </div>
-                            <!--progresse buttom-->
-                            <span class="text-primary">
+                            <!-- go button, progress button-->
+                            <div class="button-primary">
+                                <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#goModal">GO!</a>
                                 <a type="button" class="btn" href="/mypage/progress/">진행상황</a>
-                            </span>
-
-
+                            </div>
                         </div>
-                        
                     </div>
                 </div>
             </section>
@@ -432,117 +414,13 @@
                     </div>
                 </div>
             </section>
-            <!-- accordion album -->
-            <div class="lastalbum"  style="opacity: 0.9;">
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Accordion Item #1
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="card-group">
-                                    <div class="card">
-                                    <img src="assets/img/photo.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                    </div>
-                                    <div class="card">
-                                    <img src="assets/img/photo.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                    </div>
-                                    <div class="card">
-                                    <img src="assets/img/photo.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Accordion Item #2
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="card-group">
-                                    <div class="card">
-                                    <img src="assets/img/photo.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                    </div>
-                                    <div class="card">
-                                    <img src="assets/img/photo.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                    </div>
-                                    <div class="card">
-                                    <img src="assets/img/photo.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Accordion Item #3
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="card-group">
-                                    <div class="card">
-                                    <img src="assets/img/photo.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                    </div>
-                                    <div class="card">
-                                    <img src="assets/img/photo.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                    </div>
-                                    <div class="card">
-                                    <img src="assets/img/photo.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+</div>
+
+    <!-- survey JS -->
+    <script src="/static/survey/js/survey.js"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
 </html>

@@ -32,6 +32,9 @@ def post_login(request):
 def profile(request):
     return render(request, "mypage/profile.html")
 
+def profile2(request):
+    return render(request, "mypage/profile_tmp.html")
+
 def update(request):
     return render(request, "mypage/update.html")
 
