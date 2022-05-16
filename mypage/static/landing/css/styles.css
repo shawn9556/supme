@@ -2952,7 +2952,7 @@ textarea.form-control-lg {
 
 }
 .btn {
-  margin-top: 20px;
+  margin-top: 5x;
 }
 
 .btn-primary {
@@ -4497,7 +4497,7 @@ textarea.form-control-lg {
   position: relative; 
   width: 80%; 
   max-width: 900px; 
-  
+
   border-bottom: 30px;
 }
 
@@ -4535,14 +4535,13 @@ textarea.form-control-lg {
 }
 
 .card-header {
+  border-radius: 1rem;
   padding: 0.5rem 1rem;
-  margin-bottom: 0;
+  margin-bottom: 10px;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
-.card-header:first-child {
-  border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
-}
+
 
 .card-footer {
   padding: 0.5rem 1rem;
@@ -4639,6 +4638,7 @@ textarea.form-control-lg {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
   padding: 1rem 1.25rem;
   font-size: 1rem;
@@ -6965,6 +6965,7 @@ textarea.form-control-lg {
 }
 
 .flex-grow-1 {
+  margin-bottom: 3rem;
   flex-grow: 1 !important;
 }
 
@@ -7657,6 +7658,13 @@ h2.mb-0 {
 /* rtl:end:remove */
 .text-primary {
   color: deeppink;
+}
+
+.button-primary {
+  display: flex;
+  color: deeppink;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .text-secondary {
@@ -11304,9 +11312,17 @@ p.lead {
     max-height: 10rem;
     border: 0.5rem solid rgba(255, 255, 255, 0.2);
   }
-  .profil-contents{
+  .profile-contents{
     margin-top: 20px;
     padding-top: 20px;
+  }
+
+  .profile-card-cnt {
+    margin-top: -80px;
+    text-align: center;
+    padding: 0 20px;
+    padding-bottom: 40px;
+    transition: all 0.3s;
   }
 
   #sideNav .navbar-collapse {
@@ -11334,14 +11350,14 @@ section.resume-section {
   align-items: center;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 3rem;
   max-width: 75rem;
 }
 section.resume-section .resume-section-content {
   width: 100%;
   margin-left: 20px;
-  margin-top:100px;
+  margin-top:20px;
   
 }
 .resume-section-content{
@@ -11352,14 +11368,14 @@ section.resume-section .resume-section-content {
 
 @media (min-width: 768px) {
   section.resume-section {
-    min-height: 100vh;
+    min-height: 60vh;
   }
 }
 @media (min-width: 992px) {
   section.resume-section {
     padding-left: 3rem;
     padding-right: 3rem;
-    padding-top: 5rem;
+    padding-top: 3rem;
     padding-bottom: 5rem;
   }
 }
