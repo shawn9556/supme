@@ -47,3 +47,6 @@ def progress(request):
 
 def sample(request):
     return render(request,"mypage/sample.html")    
+
+def profile_tmp(request):
+    return render(request,"mypage/profile_tmp.html")   

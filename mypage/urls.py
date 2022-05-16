@@ -9,6 +9,7 @@ urlpatterns=[
     path("profile/",views.profile, name="profile"),
     path("update/",views.update, name="update"),
     path("contact/",views.contact, name="contact"),
-    path("progress/",views.progress, name="progress"),    
+    path("progress/",views.progress, name="progress"),  
+    path("profile_tmp/",views.profile_tmp, name="profile_tmp"),    
 
 ]
