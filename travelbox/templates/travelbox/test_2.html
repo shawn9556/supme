@@ -16,7 +16,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{%static 'css/test2_styles.css'%}" rel="stylesheet" />
-        <link href="{%static 'css/test2_sj.css'%}" rel="stylesheet" />
+        <!-- <link href="{%static 'css/test2_sj.css'%}" rel="stylesheet" /> -->
 
     </head>
     <body id="page-top">
@@ -30,12 +30,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">교통</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">숙소</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">음식</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">액티비티</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">활동</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">미션</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#traffic">교통</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#accomdation">숙소</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#food">음식</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#activity">액티비티</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#sightseeing">활동</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#mission">미션</a></li>
                     </ul>
                 </div>
             </div>
@@ -53,11 +53,10 @@
                 <h1 class="masthead-heading text-uppercase mb-0">{{post.place_name}}</h1>
                 <!-- Icon Divider-->
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">
+                <!-- <p class="masthead-subheading font-weight-light mb-0"> -->
                     {{post.sub_title}}
                     {{post.script}}
-
-                </p>
+                <!-- </p> -->
             </div>
         </header>
         <!-- Portfolio Section-->
@@ -74,57 +73,57 @@
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
                     <!-- Portfolio Item 1-->
-                    <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="col-md-6 col-5 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{% static 'assets/cabin.png' %}" alt="..." />
+                            <img id="traffic" class="img-fluid" src="{% static 'assets/cabin.png' %}" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 2-->
-                    <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="col-md-6 col-5 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{%static 'assets/cake.png'%}" alt="..." />
+                            <img id="accomdation"  class="img-fluid" src="{%static 'assets/cake.png'%}" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 3-->
-                    <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="col-md-6 col-5 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{%static 'assets/circus.png'%}" alt="..." />
+                            <img id="food" class="img-fluid" src="{%static 'assets/circus.png'%}" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                    <div class="col-md-6 col-5 mb-5 mb-lg-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{%static 'assets/game.png'%}" alt="..." />
+                            <img id="activity" class="img-fluid" src="{%static 'assets/game.png'%}" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                    <div class="col-md-6 col-5 mb-5 mb-md-0">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{%static 'assets/safe.png'%}" alt="..." />
+                            <img id="sightseeing" class="img-fluid" src="{%static 'assets/safe.png'%}" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 6-->
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-6 col-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{%static 'assets/submarine.png'%}" alt="..." />
+                            <img id="mission" class="img-fluid" src="{%static 'assets/submarine.png'%}" alt="..." />
                         </div>
                     </div>
                 </div>
@@ -135,41 +134,10 @@
                 <!-- Contact Section Form-->
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xl-7">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Name input-->
-                           
-                            <!-- Email address input-->
-                           
-                            <!-- Phone number input-->
-                           
-                            <!-- Message input-->
-                            
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <!-- Submit Button-->
-                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
+                        <form action="{% url 'travelbox:test2' post.id %}" id="post-write"  method="post" enctype="multipart/form-data">
+                            {% csrf_token %} 
+                            <!-- <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button> -->
+                            <input class="btn btn-primary btn-xl " type="submit" value="Send">
                         </form>
                     </div>
                 </div>
